@@ -19,6 +19,21 @@ public class IterativeMethods {
 		}
 		return sum;
 	}
+	static double sum = 0.0;
+	public static double geometricSumR(int n) {
+		if (n > 0) {
+			sum = sum + (double) ((1.0) / (Math.pow(2, n)));
+		return geometricSumR(n - 1);
+		}
+		else {
+			return sum;
+		}
+	}
+
+	public static void main(String[] args) {
+		System.out.println(geometricSumR(5));
+		System.out.println(geometricSum(5));
+	}
 
 	/**
 	 * @param p first operand
