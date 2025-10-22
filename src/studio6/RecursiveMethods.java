@@ -29,10 +29,19 @@ public class RecursiveMethods {
 	 * @param radiusMinimumDrawingThreshold radius above which drawing should occur
 	 */
 	public static void circlesUponCircles(double xCenter, double yCenter, double radius, double radiusMinimumDrawingThreshold) {
-		
+		StdDraw.circle(xCenter, yCenter, radius);
+		if (radiusMinimumDrawingThreshold < radius){
+			circlesUponCircles(xCenter - radius*(1/3), yCenter, radius * 1/3, radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter + radius*(1/3), yCenter, radius * 1/3, radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter, yCenter - radius*(1/3), radius * 1/3, radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter, yCenter + radius*(1/3), radius * 1/3, radiusMinimumDrawingThreshold);
+		}
 		// FIXME complete the recursive drawing
 	}
 	
+	public static void main(String[] args){
+		circlesUponCircles(0.5,0.5,.4,.1);
+	}
 
 	/**
 	 * This method uses recursion to create a reverse of the given array
